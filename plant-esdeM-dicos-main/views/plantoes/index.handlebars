@@ -1,0 +1,31 @@
+<section class="container">
+    <section class="d-flex justify-content-between mt-4">
+        <h2>Página Inicial dos Plantões</h2>
+        <a href="/plantoes/criar" class="btn btn-info">Cadastrar novo Plantão</a>
+    </section>
+</section>
+
+<div class="container-fluid mb-4 row row-cols-1 row-cols-md-3 g-4 mt-2">
+    {{#each dados}}
+    <div class="col">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="card-title">Nome do Médico: {{medico.dataValues.nome}}</h5>
+                <p class="card-text m-0">ID do Plantão: {{dataValues.id}}</p>
+                <p class="card-text m-0">Especialidade: {{medico.dataValues.especialidade}}</p>
+                <p class="card-text m-0">Turno: {{dataValues.turno}}</p>
+                <p class="card-text m-0">Data: {{dataValues.data}}</p>
+            </div>
+
+            <div class="card-footer text-body-secondary">
+                <a href="" class="btn btn-danger" 
+                    data-bs-toggle="modal" 
+                    data-bs-target="#modal{{dataValues.id}}">Excluir</a>
+            </div>
+        </div>
+    </div>
+         {{> modalDelete idItem=dataValues.id }}
+    {{else}}
+    <p>Nenhum Plantão cadastrado ainda.</p>
+    {{/each}}
+</div>

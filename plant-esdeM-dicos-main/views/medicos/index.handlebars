@@ -1,0 +1,32 @@
+<section class="container">
+    <section class="d-flex justify-content-between mt-4">
+        <h2>Página Incial dos Médicos</h2>
+        <a href="/medicos/create" class="btn btn-info">Cadastrar novo médico</a>
+    </section>
+</section>
+
+    <div class="container-fluid mb-4 row row-cols-1 row-cols-md-3 g-4 mt-2">
+        {{#each dados}} <!--Cada dado, mutiplicando a quantidade de produtos-->
+        <div class="col">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">{{dataValues.nome}}</h5>
+                    <p class="card-text m-0">ID: {{dataValues.id}}</p>
+                    <p class="card-text m-0">Especialidade: {{dataValues.especialidade}}</p>
+                    <p class="card-text m-0">Contato: {{dataValues.contato}}</p>
+                    <p class="card-text m-0">E-mail: {{dataValues.email}}</p>
+                </div>
+
+                <div class="card-footer text-body-secondary">
+                  <a href="" class="btn btn-danger" 
+                    data-bs-toggle="modal" 
+                    data-bs-target="#modal{{dataValues.id}}">Excluir</a>
+                </div>
+            </div>
+        </div>
+          {{>modalDelete2 idItem=dataValues.id}}
+        {{else}}
+        <p>Nenhum médico cadastrado ainda.</p> 
+
+        {{/each}}
+    </div>
