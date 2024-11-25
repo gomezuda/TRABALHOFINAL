@@ -1,7 +1,7 @@
-const {sequelizeDb, sequelizeConfig} = require('./database')
+const {sequelizeDb, sequelizeConfig} = require('./database')//Importando o banco de dados
 
 const medicos = sequelizeConfig.define(
-    'medicos',
+    'medicos',// o nome da tabela
     {
         nome:{
             type:sequelizeDb.STRING,
